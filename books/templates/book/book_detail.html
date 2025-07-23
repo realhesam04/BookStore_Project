@@ -5,7 +5,7 @@
 {% block content %}
     <div class="container mt-3">
         <h1>{{ book.title }}</h1>
-        <p>توضیحات: {{ book.description }}</p>
+        <p>توضیحات: {{ book.description|linebreaks }}</p>
         <p>نویسنده: {{ book.author }}</p>
         <h4 class="mb-3">{{ book.price }} هزار تومان</h4>
             <div class="container mt-3 mb-3">

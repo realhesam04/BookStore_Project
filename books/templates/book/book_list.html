@@ -6,7 +6,7 @@
     <div class="container mt-3">
         {% for book in books %}
         <a href="{{ book.get_absolute_url }}"><h1>{{ book.title }}</h1></a>
-        <p>{{ book.description }}</p>
+        <p>{{ book.description|truncatewords:12}}</p>
         <p>---------------------------------------------</p>
     {% endfor %}
 
