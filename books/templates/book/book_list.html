@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+
+{% block page_title %}لیست کتاب ها{% endblock %}
+
+{% block content %}
+    <div class="container mt-3">
+        {% for book in books %}
+        <a href="{{ book.get_absolute_url }}"><h1>{{ book.title }}</h1></a>
+        <p>{{ book.description }}</p>
+        <p>---------------------------------------------</p>
+    {% endfor %}
+
+{#        <a  href="{% url 'book_create' %}">اضافه کردن کتاب جدید</a>#}
+    <a href="{% url 'book_create' %}"><button class="btn btn-success mb-5" type="button">افزودن کتاب جدید</button></a>
+
+    </div>
+
+{% endblock content %}
