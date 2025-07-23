@@ -8,6 +8,9 @@
         <p>توضیحات: {{ book.description }}</p>
         <p>نویسنده: {{ book.author }}</p>
         <h4 class="mb-3">{{ book.price }} هزار تومان</h4>
+            <div class="container mt-3 mb-3">
+                <a href="{% url 'book_update' book.id %}"><button type="button" class="btn btn-info">ویرایش</button></a>
+            </div>
         <a href="{% url 'book_list' %}">صفحه لیست کتاب ها</a>
     </div>
 
