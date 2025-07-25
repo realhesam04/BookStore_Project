@@ -3,6 +3,7 @@
 {% block page_title %}لیست کتاب ها{% endblock %}
 
 {% block content %}
+
     <div class="container mt-3">
         {% for book in books %}
         <a href="{{ book.get_absolute_url }}"><h1>{{ book.title }}</h1></a>

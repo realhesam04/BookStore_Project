@@ -1,8 +1,9 @@
 {% extends '_base.html' %}
 
-{% block page_title %}جزئیات کتاب {{ book.title }}{% endblock %}
+{% block page_title %}جزئیات کتاب {{ book.title }} {% endblock %}
 
 {% block content %}
+
     <div class="container mt-3">
         <h1>{{ book.title }}</h1>
         <p>توضیحات: {{ book.description|linebreaks }}</p>
