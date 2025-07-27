@@ -36,11 +36,13 @@
         <div class="mx-2 text-white">
             {% if user.is_authenticated %}
                 خوش آمدید {{ user.username }}|
+                {% if request.resolver_match.url_name != 'book_create' %}
                 <form action="{% url 'logout' %}" method="POST">
                 {% csrf_token %}
                     {{ form.as_p }}
                     <button type="submit" class="btn btn-danger">خروج</button>
                 </form>
+                    {% endif %}
             {% else %}
                 <a class="'link-ligh text-decoration-none " href="{% url 'signup' %}">ثبت نام</a>|<a class="'link-ligh text-decoration-none" href="{% url 'login' %}">ورود</a>
             {% endif %}
