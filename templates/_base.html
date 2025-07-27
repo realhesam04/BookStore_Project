@@ -15,13 +15,15 @@
 
     <title>{% block page_title %} {% endblock %}</title>
 
+    {% block style %} {% endblock %}
+
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-info" dir="rtl">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="icons/book.png" alt="" height="30"
+            <img src="{% static 'icons/book.png' %}" alt="" height="30"
                  class="d-inline-block align-text-top">
         </a>
         <a class="navbar-brand mx-3" href="{% url 'book_list' %}">خانه کتاب</a>
@@ -38,7 +40,7 @@
         <div class="mx-2 text-white">
             {% if user.is_authenticated %}
                 خوش آمدید {{ user.username }}
-                {% if request.resolver_match.url_name != 'book_create' %}
+                {% if request.resolver_match.url_name != 'book_create' and request.resolver_match.url_name != 'password_change' %}
                 <form action="{% url 'logout' %}" method="POST">
                 {% csrf_token %}
                     {{ form.as_p }}
