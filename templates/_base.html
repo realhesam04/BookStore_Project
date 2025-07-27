@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
@@ -9,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <title>{% block page_title %} {% endblock %}</title>
 
@@ -35,12 +37,14 @@
         </div>
         <div class="mx-2 text-white">
             {% if user.is_authenticated %}
-                خوش آمدید {{ user.username }}|
+                خوش آمدید {{ user.username }}
                 {% if request.resolver_match.url_name != 'book_create' %}
                 <form action="{% url 'logout' %}" method="POST">
                 {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit" class="btn btn-danger">خروج</button>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-danger center">خروج</button>
+                    </div>
                 </form>
                     {% endif %}
             {% else %}
