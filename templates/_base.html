@@ -40,7 +40,7 @@
         <div class="mx-2 text-white">
             {% if user.is_authenticated %}
                 خوش آمدید {{ user.username }}
-                {% if request.resolver_match.url_name != 'book_create' and request.resolver_match.url_name != 'password_change' %}
+                {% if request.resolver_match.url_name != 'book_create' and request.resolver_match.url_name != 'password_change' and request.resolver_match.url_name != 'book_update' %}
                 <form action="{% url 'logout' %}" method="POST">
                 {% csrf_token %}
                     {{ form.as_p }}
